@@ -55,11 +55,11 @@ function toCard(c) {
 
     const delBtn = document.createElement("button");
     delBtn.textContent = "Delete";
-    delBtn.onclick = () => deleteCharacter(c.id);
+    delBtn.onclick = () => deleteRoom(c.id);
 
     const expBtn = document.createElement("button");
     expBtn.textContent = "Export";
-    expBtn.onclick = () => exportJSON([c], `rooms-${c.id}.json`);
+    expBtn.onclick = () => exportJSOfN([c], `rooms-${c.id}.json`);
 
     row.append(loadBtn, delBtn, expBtn);
     div.append(h3, p, row);
@@ -67,7 +67,7 @@ function toCard(c) {
 }
 
 function renderList() {
-    const wrap = document.getElementById("characters-list");
+    const wrap = document.getElementById("rooms-list");
     wrap.innerHTML = "";
     readLS().forEach(c => wrap.appendChild(toCard(c)));
 }
@@ -89,7 +89,7 @@ async function handleImageChange(e) {
 }
 
 function clearForm() {
-    document.getElementById("character-form").reset();
+    document.getElementById("room-form").reset();
     document.getElementById("name").value = "";
     document.getElementById("description").value = "";
     currentImageData = "";
@@ -108,7 +108,7 @@ function loadToForm(id) {
     renderPreview();
 }
 
-function deleteCharacter(id) {
+function deleteRoom(id) {
     const arr = readLS().filter(x => x.id !== id);
     writeLS(arr);
     if (editingId === id) clearForm();
@@ -116,7 +116,7 @@ function deleteCharacter(id) {
 }
 
 function setup() {
-    const form = document.getElementById("character-form");
+    const form = document.getElementById("room-form");
     const image = document.getElementById("image");
     const clearBtn = document.getElementById("clear-form");
     const exportAll = document.getElementById("export-all");
@@ -146,7 +146,7 @@ const importJSON = document.getElementById("import-json");
     });
 
     exportAll.addEventListener("click", () => {
-    exportJSON(readLS(), "characters.json");
+    exportJSON(readLS(), "rooms.json");
     });
 
     importJSON.addEventListener("change", async (e) => {
@@ -156,7 +156,7 @@ const importJSON = document.getElementById("import-json");
             const text = await f.text();
             const parsed = JSON.parse(text);
             const items = normalizeImported(parsed).filter(validChar);
-            const merged = mergeCharacters(readLS(), items);
+            const merged = mergeRooms(readLS(), items);
             writeLS(merged);
             renderList();
         } finally {
@@ -192,7 +192,7 @@ function validChar(obj) {
     return obj && ("name" in obj || "description" in obj || "imageData" in obj);
 }
 
-function mergeCharacters(existing, incoming) {
+function mergeRooms(existing, incoming) {
     const map = new Map(existing.map(x => [x.id, x]));
     incoming.forEach(it => {
         const id = it.id || uid();
@@ -217,7 +217,7 @@ importJSON.addEventListener("change", async (e) => {
         const text = await f.text();
         const parsed = JSON.parse(text);
         const items = normalizeImported(parsed).filter(validChar);
-        const merged = mergeCharacters(readLS(), items);
+        const merged = mergeRooms(readLS(), items);
         writeLS(merged);
         renderList();
     } finally {
