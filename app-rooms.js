@@ -34,6 +34,13 @@ function renderPreview() {
     }
 }
 
+function deleteRoom(id) {
+    const arr = readLS().filter(x => x.id !== id);
+    writeLS(arr);
+    if (editingId === id) clearForm();
+    renderList();
+}
+
 function toCard(c) {
     const div = document.createElement("div");
     div.className = "card";
@@ -59,7 +66,7 @@ function toCard(c) {
 
     const expBtn = document.createElement("button");
     expBtn.textContent = "Export";
-    expBtn.onclick = () => exportJSOfN([c], `rooms-${c.id}.json`);
+    expBtn.onclick = () => exportJSON([c], `rooms-${c.id}.json`);
 
     row.append(loadBtn, delBtn, expBtn);
     div.append(h3, p, row);
