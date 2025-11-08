@@ -129,12 +129,12 @@ button:hover, .file-btn span:hover { box-shadow: 0 0 0 3px rgba(28,255,116,0.25)
 
     /* Rooms tab color */
     .tabs a[href="rooms.html"] {
-     background: #6d4c41; /* brown */
+     background: #d9ec10; /* yellow */
      color: #fff;
     }
     .tabs a[href="rooms.html"]:hover,
     .tabs a[href="rooms.html"].active {
-        outline: 3px solid rgba(109,76,65,0.35);
+        outline: 3px solid rgba(137, 157, 6, 0.35);
 }
 
 /* Page backgrounds */
@@ -143,5 +143,5 @@ body.page-weapons {
 }
 
 body.page-rooms {
-  background: #6d4c41; /* brown */
+  background: #d9ec10; /* yellow */
 }
