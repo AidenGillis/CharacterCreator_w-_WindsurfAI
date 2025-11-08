@@ -127,6 +127,13 @@ body.page-rooms .file-btn span:hover {
 body.page-rooms .tab.active { outline: 3px solid rgba(217, 236, 16, 0.35); }
 body.page-rooms .panel { box-shadow: 0 0 12px rgba(217, 236, 16, 0.15); }
 
+/* Page-specific slight background tints for tabs and primary buttons */
+body.page-weapons .tab,
+body.page-weapons button.primary { background: rgba(255, 92, 92, 0.08); }
+
+body.page-rooms .tab,
+body.page-rooms button.primary { background: rgba(217, 236, 16, 0.08); }
+
 .tabs {
     display: flex;
     gap: 12px;
