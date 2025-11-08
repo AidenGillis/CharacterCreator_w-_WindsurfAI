@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Character Creator</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header class="container">
+        <nav class="tabs">
+    <a href="index.html" class="tab active">Characters</a>
+    <a href="weapons.html" class="tab">Weapons</a>
+    <a href="rooms.html" class="tab">Rooms</a>
+</nav>
+        <h1>Character Creator</h1>
+    </header>
+
+    <main class="container">
+        <section class="panel">
+            <h2>Create / Edit Character</h2>
+            <form id="character-form">
+                <div class="field">
+                    <label for="name">Name</label>
+                    <input id="name" name="name" type="text" required placeholder="Enter name" />
+                </div>
+
+                <div class="field">
+                    <label for="image">Image</label>
+                    <input id="image" name="image" type="file" accept="image/*" />
+                </div>
+
+                <div class="preview" id="image-preview">
+                    <span class="muted">Image preview</span>
+                </div>
+
+                <div class="field">
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description" rows="5" placeholder="Enter description"></textarea>
+                </div>
+
+                <div class="actions">
+                    <button type="submit" class="primary">Save Character</button>
+                    <button type="button" id="clear-form">Clear</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="panel">
+            <h2>Saved Characters</h2>
+            <div class="actions">
+                <button type="button" id="export-all">Export All (JSON)</button>
+                <label class="file-btn">
+                    <input type="file" id="import-json" accept="application/json" hidden />
+                    <span>Import JSON</span>
+                </label>
+            </div>
+            <div id="characters-list" class="grid"></div>
+        </section>
+    </main>
+
+    <footer class="container">
+        <small>Data is stored locally in your browser. You can export/import JSON at any time.</small>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
