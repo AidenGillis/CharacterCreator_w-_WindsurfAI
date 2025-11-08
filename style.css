@@ -92,6 +92,39 @@ button:hover, .file-btn span:hover { box-shadow: 0 0 0 3px rgba(28,255,116,0.25)
 .card p { margin: 0 0 8px; color: var(--muted); }
 .card .row { display: flex; gap: 8px; flex-wrap: wrap; }
 
+body.page-weapons {
+  background: var(--bg);
+  --fg: #ff5c5c;      /* red text */
+  --border: #ff5c5c;  /* red borders/outlines */
+}
+
+body.page-rooms {
+  background: var(--bg);
+  --fg: #d9ec10;      /* yellow text */
+  --border: #d9ec10;  /* yellow borders/outlines */
+}
+
+/* Page-specific outline/glow colors */
+body.page-weapons input[type="text"]:focus,
+body.page-weapons textarea:focus,
+body.page-weapons .tab:hover,
+body.page-weapons button:hover,
+body.page-weapons .file-btn span:hover {
+  box-shadow: 0 0 0 3px rgba(255, 92, 92, 0.25);
+}
+body.page-weapons .tab.active { outline: 3px solid rgba(255, 92, 92, 0.35); }
+body.page-weapons .panel { box-shadow: 0 0 12px rgba(255, 92, 92, 0.15); }
+
+body.page-rooms input[type="text"]:focus,
+body.page-rooms textarea:focus,
+body.page-rooms .tab:hover,
+body.page-rooms button:hover,
+body.page-rooms .file-btn span:hover {
+  box-shadow: 0 0 0 3px rgba(217, 236, 16, 0.25);
+}
+body.page-rooms .tab.active { outline: 3px solid rgba(217, 236, 16, 0.35); }
+body.page-rooms .panel { box-shadow: 0 0 12px rgba(217, 236, 16, 0.15); }
+
 .tabs {
     display: flex;
     gap: 12px;
@@ -117,31 +150,4 @@ button:hover, .file-btn span:hover { box-shadow: 0 0 0 3px rgba(28,255,116,0.25)
         outline: 3px solid rgba(28,255,116,0.35);
     }
 
-    /* Weapons tab color */
-    .tabs a[href="weapons.html"] {
-     background: #c62828; /* red */
-     color: #fff;
-    }
-    .tabs a[href="weapons.html"]:hover,
-    .tabs a[href="weapons.html"].active {
-        outline: 3px solid rgba(198,40,40,0.35);
-}
 
-    /* Rooms tab color */
-    .tabs a[href="rooms.html"] {
-     background: #d9ec10; /* yellow */
-     color: #fff;
-    }
-    .tabs a[href="rooms.html"]:hover,
-    .tabs a[href="rooms.html"].active {
-        outline: 3px solid rgba(137, 157, 6, 0.35);
-}
-
-/* Page backgrounds */
-body.page-weapons {
-  background: #c62828; /* red */
-}
-
-body.page-rooms {
-  background: #d9ec10; /* yellow */
-}
