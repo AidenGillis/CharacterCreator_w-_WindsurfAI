@@ -74,7 +74,7 @@ function toCard(c) {
 }
 
 function renderList() {
-    const wrap = document.getElementById("rooms-list");
+    const wrap = document.getElementById("characters-list");
     wrap.innerHTML = "";
     readLS().forEach(c => wrap.appendChild(toCard(c)));
 }
@@ -96,7 +96,7 @@ async function handleImageChange(e) {
 }
 
 function clearForm() {
-    document.getElementById("room-form").reset();
+    document.getElementById("character-form").reset();
     document.getElementById("name").value = "";
     document.getElementById("description").value = "";
     currentImageData = "";
@@ -123,7 +123,7 @@ function deleteRoom(id) {
 }
 
 function setup() {
-    const form = document.getElementById("room-form");
+    const form = document.getElementById("character-form");
     const image = document.getElementById("image");
     const clearBtn = document.getElementById("clear-form");
     const exportAll = document.getElementById("export-all");
@@ -214,20 +214,3 @@ function mergeRooms(existing, incoming) {
     });
     return Array.from(map.values());
 }
-
-
-
-importJSON.addEventListener("change", async (e) => {
-    const f = e.target.files && e.target.files[0];
-    if (!f) return;
-    try {
-        const text = await f.text();
-        const parsed = JSON.parse(text);
-        const items = normalizeImported(parsed).filter(validChar);
-        const merged = mergeRooms(readLS(), items);
-        writeLS(merged);
-        renderList();
-    } finally {
-        importJSON.value = "";
-    }
-});
