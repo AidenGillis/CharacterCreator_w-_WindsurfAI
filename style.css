@@ -96,12 +96,14 @@ body.page-weapons {
   background: var(--bg);
   --fg: #ff5c5c;      /* red text */
   --border: #ff5c5c;  /* red borders/outlines */
+  --muted: #ff5c5c;   /* red muted text */
 }
 
 body.page-rooms {
   background: var(--bg);
   --fg: #d9ec10;      /* yellow text */
   --border: #d9ec10;  /* yellow borders/outlines */
+  --muted: #d9ec10;   /* yellow muted text */
 }
 
 /* Page-specific outline/glow colors */
