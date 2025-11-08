@@ -34,6 +34,13 @@ function renderPreview() {
     }
 }
 
+function deleteWeapon(id) {
+    const arr = readLS().filter(x => x.id !== id);
+    writeLS(arr);
+    if (editingId === id) clearForm();
+    renderList();
+}
+
 function toCard(c) {
     const div = document.createElement("div");
     div.className = "card";
