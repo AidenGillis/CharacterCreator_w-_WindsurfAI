@@ -116,3 +116,23 @@ button:hover, .file-btn span:hover { box-shadow: 0 0 0 3px rgba(28,255,116,0.25)
     .tab.active {
         outline: 3px solid rgba(28,255,116,0.35);
     }
+
+    /* Weapons tab color */
+    .tabs a [href="weapons.html"] {
+     background: #c62828; /* red */
+     color: #fff;
+    }
+    .tabs a[href="weapons.html"]:hover,
+    .tabs a[href="weapons.html"].active {
+        outline: 3px solid rgba(198,40,40,0.35);
+}
+
+    /* Rooms tab color */
+    .tabs a [href="rooms.html"] {
+     background: #6d4c41; /* brown */
+     color: #fff;
+    }
+    .tabs a[href="rooms.html"]:hover,
+    .tabs a[href="rooms.html"].active {
+        outline: 3px solid rgba(109,76,65,0.35);
+}
